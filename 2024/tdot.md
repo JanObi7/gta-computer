@@ -6,6 +6,8 @@ Zum "Tag der offenen Tür" stellt sich die "GTA Computer" vor. Dazu präsentiert
 ## Preis-Quiz
 Für die Besucher steht ein einfaches [Online-Quiz](https://forms.office.com/r/QvAaquLWnt) zu Fragen Rund um die Themen Computer, Internet und Programmierung zur Verfügung. Das Quiz kann von den Besuchern am eigenen Smartphone oder an zwei Arbeitsplätzen absolviert werden.
 
+![](/images/microbits.png)
+
 Optional können die Teilnehmer durch Angabe einer Email Adresse an der Verlosung von 4x "micro:bit" teinehmen. Die Gewinner werden nach der Veranstaltung ermittelt und informiert. Der Rechtsweg ist ausgeschlossen.
 
 ## Exponate
@@ -25,6 +27,7 @@ Ein Projekt aus dem Jahre 2021/2022 beschäftigte sich mit der Nutzung von Bildv
 Dieses Browser-Spiel wurde 2022 im Rahmen der "Web Programmierung" mit HTML und JavaScript umgesetzt. Am Stand kann das [Asteroids](asteroids) mit Kopfhörer von den Besuchern gespielt werden. Highscores werden vom Standbetreuer dokumentiert.
 
 ### Santa Claus
+![Santa Claus](/images/santaclaus.png)
 Dieses Spiel wurde 2021 im Rahmen der "Python Programmierung" umgesetzt. Am Stand kann das Spiel mit Kopfhörer von den Besuchern gespielt werden. Highscores werden vom Standbetreuer dokumentiert.
 
 ### micro:bit
