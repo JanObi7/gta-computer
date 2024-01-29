@@ -4,6 +4,13 @@
 
 Zur Übung soll eine eigene ansprechende Website erstellt werden. Dazu werden verschiedene Informationen, wie Bilder, Texte und Daten bereitgestellt.
 
+## Inhalte
+
+- [Allgemeines](content/Allgemeines.txt)
+- [Geschichte](content/Geschichte.txt)
+- [Aktuelles](content/Drahtseilbahnfest.txt)
+- [Daten](content/Technische%20Daten.txt)
+
 ## Anforderungen
 
 - Die Website soll aus 3 Seiten bestehen
@@ -24,4 +31,4 @@ Zur Übung soll eine eigene ansprechende Website erstellt werden. Dazu werden ve
 
 ## Musterlösung
 
-So könnte eine mögliche [Website](drahtseilbahn/index.html) aussehen.
+So könnte eine mögliche [Website](website) aussehen.
