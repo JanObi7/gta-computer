@@ -10,6 +10,7 @@
 - [2022/2023 - Web Programmierung](2022/index.md)
 - [2023/2024 - App Programmierung](2023/index.md)
 
-## Programme
+## Projekte
 
-- [Asteroids](asteroids)
+- [Asteroids](asteroids) (Browser-Game)
+- [Drahtseilbahn](2023/drahtseilbahn.md) (Website)
