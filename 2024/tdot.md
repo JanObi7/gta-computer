@@ -6,7 +6,7 @@ Zum "Tag der offenen Tür" stellt sich die "GTA Computer" vor. Dazu präsentiert
 ## Preis-Quiz
 Für die Besucher steht ein einfaches [Online-Quiz](https://forms.office.com/r/QvAaquLWnt) zu Fragen Rund um die Themen Computer, Internet und Programmierung zur Verfügung. Das Quiz kann von den Besuchern am eigenen Smartphone oder an zwei Arbeitsplätzen absolviert werden.
 
-![microbits](microbits.png)
+![microbits](/gta-computer/images/microbits.png)
 
 Optional können die Teilnehmer durch Angabe einer Email Adresse an der Verlosung von 4x "micro:bit" teinehmen. Die Gewinner werden nach der Veranstaltung ermittelt und informiert. Der Rechtsweg ist ausgeschlossen.
 
