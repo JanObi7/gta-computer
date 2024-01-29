@@ -31,5 +31,5 @@ Dieses Spiel wurde 2021 im Rahmen der "Python Programmierung" umgesetzt. Am Stan
 Am Stand haben die Besuche die Möglichkeit, in einer grafischen Umgebung mit Simulator, erste eigenen Programmiererfahrungen zu machen. Basis stellen die Einplatinen-Computer "micro:bit" dar. Dazu stehen [Anleitungen](https://janobi7.github.io/makecode-tutorials/) zur Verfügung. Standbetreuer stehen zur Unterstützung bereit. Zur Demonstration der vielfältigen Möglichkeiten des "micro:bit" stehen 4 Geräte mit verschiedenen Beispiel-Apllikationen zum Ausprobieren bereit.
 
 ### GTA Web-Site
-An zwei Arbeitsplätzen können Besucher sich über die Themen und Projekte der "GTA Computer" informieren. Hierfür wird die [Web-Site](/) der GTA im Browser angezeigt.
+An zwei Arbeitsplätzen können Besucher sich über die Themen und Projekte der "GTA Computer" informieren. Hierfür wird die [Web-Site](/gta-computer) der GTA im Browser angezeigt.
 
