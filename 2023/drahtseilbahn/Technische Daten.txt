@@ -1,0 +1,13 @@
+Technische Daten
+Streckenlänge	1 239,8 m
+Höhenunterschied	168,06 m
+Neigung im Durchschnitt	13,50 %
+Neigung maximal	20,14 %
+Spurweite	1 000 mm
+Fahrzeuganzahl	2
+Baujahr Fahrzeuge	1996
+Sitzplätze	36
+Stehplätze	39
+Eigenmasse	9 t
+Fahrgeschwindigkeit	3 m/s
+Fahrzeit	8 Minuten
