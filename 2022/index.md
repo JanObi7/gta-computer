@@ -49,5 +49,5 @@ Ziel dieses Kurses ist die Heranf√ºhrung an das Programmieren von Anwendungen f√
 
 ## Ergebnisse
 
-- [Drahtseilbahn](drahtseilbahn) (Website)
-- [Asteroids](asteroids) (Browser-Game)
+- [Drahtseilbahn](../drahtseilbahn) (Website)
+- [Asteroids](../asteroids) (Browser-Game)
