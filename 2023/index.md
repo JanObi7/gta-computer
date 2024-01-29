@@ -1,5 +1,7 @@
 # 2023/2024 - App Programmierung
 
+![www](www.png)
+
 Klassenstufe: 7 - 12
 
 Zeitumfang: 90 min/Woche

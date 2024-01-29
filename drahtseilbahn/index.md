@@ -1,5 +1,7 @@
 # Website "Drahtseilbahn"
 
+![bahn](website/bahn.png)
+
 ## Aufgabenstellung
 
 Zur Übung soll eine eigene ansprechende Website erstellt werden. Dazu werden verschiedene Informationen, wie Bilder, Texte und Daten bereitgestellt.
