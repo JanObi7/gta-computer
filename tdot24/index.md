@@ -18,6 +18,9 @@ Die Arbeit der GTA wird an verschiedenen Stationen in Form von Exponaten präsen
 Auf einem Computer werden Themen der "GTA Computer" der letzten Jahre in Form einer Slide Show präsentiert. Die Themen reichen von allgemeiner Programmierung über Python udn JavaScript bis hinb zu Softwareentwicklung und komplexen Web-Applikationen.
 
 ### SvP Talk
+
+![svptalk](svptalk.png)
+
 Das aktuelle Projekt beschäftigt sich mit der Entwicklung einer Web-Applikation. Bei [SvPTalk](https://svptalk.web.app) handelt es sich um eine Chat-App mit Funktionen wie WhatsApp on Co. Am Exponat wird der aktuelle Stand der Entwicklung gezeigt. Dazu gehören Funktionen, wie die Echtzeitkommunikation und die KI-Funktionen.
 
 ### Smart Camera
