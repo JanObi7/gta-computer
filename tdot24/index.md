@@ -41,3 +41,11 @@ Am Stand haben die Besuche die Möglichkeit, in einer grafischen Umgebung mit Si
 ### GTA Web-Site
 An zwei Arbeitsplätzen können Besucher sich über die Themen und Projekte der "GTA Computer" informieren. Hierfür wird die [Web-Site](/gta-computer) der GTA im Browser angezeigt.
 
+## Steckbriefe
+
+- [Asteroids](asteroids.pdf)
+- [Santa Claus](santaclaus.pdf)
+- [micro:bit](microbit.pdf)
+- [Quiz](quiz.pdf)
+- [SmartCam](smartcam.pdf)
+- [SvP Talk](svptalk.pdf)
