@@ -43,9 +43,9 @@ An zwei Arbeitsplätzen können Besucher sich über die Themen und Projekte der 
 
 ## Steckbriefe
 
-- [Asteroids](asteroids.pdf)
-- [Santa Claus](santaclaus.pdf)
+- [Asteroids](Asteroids.pdf)
+- [Santa Claus](SantaClaus.pdf)
 - [micro:bit](microbit.pdf)
-- [Quiz](quiz.pdf)
-- [SmartCam](smartcam.pdf)
-- [SvP Talk](svptalk.pdf)
+- [Quiz](Quiz.pdf)
+- [SmartCam](SmartCam.pdf)
+- [SvP Talk](SvPTalk.pdf)
