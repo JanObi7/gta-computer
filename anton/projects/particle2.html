@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #canvas{
+            height: 100%;
+            width: 100%;
+            background: rgb(0, 0, 0);
+        }
+        .cont{
+            position: absolute;
+            height: 450px;
+            width: 350px;
+            border-radius: 0px 0px 30px 0px;
+            background: rgb(0, 132, 255);
+            border: 2px solid white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .iputrange{
+            width: 290px;
+            height: 20px;
+            background: white;
+        }
+        .labeltop{
+            font-size: 19px;
+            color: black;
+            margin-top: 40px;
+        }
+        .label{
+            font-size: 19px;
+            color: black;
+        }
+        .btn{
+            height: 34px;
+            width: 140px;
+            background: limegreen;
+            border-radius: 17px;
+            border: 2px solid white;
+            margin-top: 10px;
+        }
+        .appear{
+            position: absolute;
+            height: 34px;
+            width: 140px;
+            background: grey;
+            border-radius: 17px;
+            border: none;
+            display: block;
+            margin-left: 80px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    
+    <div class="cont" id="cont">
+        <label class="labeltop" for="speedinput">speed:</label>
+        <input type="range" min="1" max="200" value="20" class="iputrange" id="speedinput">
+        <label class="label" for="sizeinput">size:</label>
+        <input type="range" min="1" max="19" value="5" class="iputrange" id="sizeinput">
+        <label class="label" for="ballcountinput">ballcount:</label>
+        <input type="range" min="1" max="1000" value="20" class="iputrange" id="ballcountinput">
+        <label class="label" for="speedloseinput">change speed at collision:</label>
+        <input type="range" min="0" max="50" value="0" class="iputrange" id="speedloseinput">
+        <label class="label" for="gravityinput">activate Gravity:</label>
+        <input type="range" min="0" max="10" value="0" class="iputrange" id="gravityinput">
+        <label class="label" for="weirdinput">Weird stuff:</label>
+        <input type="range" min="0" max="1" value="0" class="iputrange" id="weirdinput">
+        <label class="label" for="linesinput">lines:</label>
+        <input type="range" min="0" max="200" value="0" class="iputrange" id="linesinput">
+        <label class="label" for="colorinput">black and white:</label>
+        <input type="range" min="0" max="1" value="0" class="iputrange" id="colorinput">
+    </div>
+
+    <button class="appear" type="button" id="hideshow" onclick="appear()">hide / show</button>
+
+    <script>
+      const maxCount = 1000;
+
+      // element handler
+      var canvas = document.getElementById("canvas");
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      document.getElementById("cont").style.marginTop = -canvas.height + "px";
+      document.getElementById("hideshow").style.marginTop = -canvas.height + 20 + "px";
+
+      // resize handler
+      window.onresize = () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      };
+
+
+      // create alle particles
+      var particles = [];
+      for (let i = 0; i < maxCount; i++) {
+        particles.push({
+          x: canvas.width * Math.random(),
+          y: canvas.height * Math.random(),
+          vx: 2.0 * Math.random() - 1.0,
+          vy: 2.0 * Math.random() - 1.0,
+          size: 3.0 * Math.random() + 1.0,
+          color: 360 * Math.random()
+        })
+      }
+
+      function draw(){
+        var weird = document.getElementById("weirdinput").value;
+        var count = parseInt(document.getElementById("ballcountinput").value);
+        var sfaktor = document.getElementById("sizeinput").value;
+        var vfaktor = document.getElementById("speedinput").value / 10.0;
+        var dfaktor = document.getElementById("speedloseinput").value / 100.0;
+        var gravity = parseFloat(document.getElementById("gravityinput").value);
+        var blackwhite = document.getElementById("colorinput").value;
+        var closestDistance = document.getElementById("linesinput").value;
+
+        var ctx = canvas.getContext("2d");
+
+        if (weird == 0) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height)
+        }
+
+        // update all particles
+        particles.forEach(p => {
+
+          // gravity
+          p.vy += 0.01*gravity
+
+          // update particle
+          p.x += vfaktor * p.vx;
+          p.y += vfaktor * p.vy;
+
+          // am Rand reflektieren
+          size = sfaktor * p.size;
+          if (p.vx < 0 && p.x < size || p.vx > 0 && p.x > canvas.width-size) p.vx = -p.vx * (1 - dfaktor);
+          if (p.vy < 0 && p.y < size || p.vy > 0 && p.y > canvas.height-size) p.vy = -p.vy * (1 - dfaktor);
+        })
+
+        // draw count particles
+        let parts = particles.slice(0, count)
+        parts.forEach(p => {
+
+          // draw lines first if close
+          parts.forEach(p2 => {
+            let dx = p2.x - p.x;
+            let dy = p2.y - p.y;
+            let distance2 = dx * dx + dy * dy;
+
+            if (distance2 <= closestDistance*closestDistance) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = "white";
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          })
+
+          // draw particle
+          ctx.fillStyle = "hsl("+p.color+","+(blackwhite == 1?'0':'100')+"%,50%)";
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, sfaktor * p.size, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.closePath();
+
+
+        });
+        requestAnimationFrame(draw);
+      }
+        
+      function appear(){
+        button = document.getElementById("hideshow")
+        menu = document.getElementById("cont")
+          if(menu.style.display != "none"){
+              button.style.background = "rgba(153, 153, 153, 0.3)";
+              button.style.color  = "white";
+              menu.style.display = "none";
+          }else{
+              menu.style.display = "flex";
+              button.style.background = "grey";
+              button.style.color  = "black";
+          }
+      }
+
+      draw();
+    </script>
+</body>
+</html>
