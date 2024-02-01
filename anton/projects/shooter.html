@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #ctx{
+            height: 100%;
+            width: 100%;
+            background: rgb(29, 29, 29);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="ctx"></canvas>
+
+    <script>
+        var canvas = document.getElementById("ctx");
+        var ctx = canvas.getContext("2d");
+
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+
+        var enemies = [];
+        var checked = [];
+        var enemyprojectiles = [];
+        for(let i = 0; i < 100; i++){
+            enemyprojectiles.push('');
+        }        
+        var players = [{
+            height: 20,
+            width: 90,
+            x: canvas.width/2 - 75,
+            y: canvas.height - 150,
+            speedX: 0
+        }];
+        var playerprojectiles = [];
+        for(let i = 0; i < 130; i++){
+            playerprojectiles.push('');
+        }   
+        var enemyspeedmult = 1;
+        var counttillenemyshoot = 20;
+        var count2 = 0;
+        var count = 0;
+
+
+
+
+
+        window.addEventListener("mousemove", e => {
+            players[0].x = e.clientX;
+        });
+        window.addEventListener("click", e => {
+            players.forEach(player => {
+                createprojectile(player);
+            })
+        });
+        window.addEventListener("keydown", e => {
+            if(e.keyCode == 13){
+                players.forEach(player => {
+                    createprojectile(player);
+                })
+            }
+        });
+
+
+
+
+        for(let i = 0; i < 4; i++){
+            let speed = Math.floor((Math.random() * 14) - 7);
+            while(speed == 0){
+                speed = Math.floor((Math.random() * 14) - 7);
+            }
+            enemies.push({
+                height: 20,
+                width: 70,
+                x: Math.floor((Math.random() * (canvas.width - 80)) + 80),
+                y: canvas.height - (canvas.height - 150),
+                speedX: speed
+            });
+            checked.push(0);
+        }
+
+
+
+    
+
+        function animate(){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            enemies.forEach(enemy => {
+                ctx.fillStyle = "red";
+                ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
+
+                enemy.x += enemy.speedX * enemyspeedmult;                
+
+                if(enemy.x < 0){
+                    enemy.speedX = Math.abs(enemy.speedX);
+                }
+                if(enemy.x > canvas.width - enemy.width){
+                    enemy.speedX = -Math.abs(enemy.speedX);
+                }
+            });
+
+            players.forEach(player => {
+                ctx.fillStyle = "white";
+                ctx.fillRect(player.x, player.y, player.width, player.height);
+
+                player.x += player.speedX;
+
+                if(player.x < 0){
+                    player.speedX = 0;
+                }
+                if(player.x > canvas.width - player.width){
+                    player.speedX = 0;
+                }
+            });
+
+            for(let i = 0; i < 130; i++){
+                if(playerprojectiles[i].y < 0){
+                    playerprojectiles[i] = "";
+                }
+            }
+
+            for(let i = 0; i < enemies.length; i++){
+                if(enemies[i] == '' && checked[i] == 0){
+                    checked[i] = 1;
+                    setTimeout(function() {
+                        regenerateenemies(i);
+                    }, 500);
+                }
+            }
+
+            for(let i = 0; i < 100; i++){
+                if(enemyprojectiles[i].y > canvas.height){
+                    enemyprojectiles[i] = "";
+                }
+            }
+
+            if(count == counttillenemyshoot){
+            count = 0;
+            for(let i = 0; i < enemies.length; i++){
+                if(enemies[i] != ''){
+                    let chance = Math.floor(Math.random() * 2);
+                    if(chance == 1){
+                        createenemyprojectiles(i);
+                    }
+                }
+            }
+            }
+            count++;
+
+            shootenemyprojectiles();
+            shootprojectiles();
+            requestAnimationFrame(animate);
+        }
+
+
+        function destroyparticleanimation(particles){
+            particles.forEach(particle => {
+                
+            })
+        }
+
+
+
+
+
+
+
+        function createprojectile(player){
+            let done = false;
+            for(let i = 0; i < 130; i++){
+                if(playerprojectiles[i] == '' && done == false){
+                    done = true;
+                    playerprojectiles[i] = {
+                        height: 25,
+                        width: 10,
+                        x: player.x + player.width/2,
+                        y: player.y - 30,
+                        speedY: -10
+                    }
+                }
+            }
+        }
+
+        function shootprojectiles(){
+            playerprojectiles.forEach(projectile => {
+                ctx.fillStyle = "white";
+                ctx.fillRect(projectile.x, projectile.y, projectile.width, projectile.height);
+                projectile.y += projectile.speedY;
+
+                for(let i = 0; i < enemies.length; i++){
+                    if(projectile.x > enemies[i].x && 
+                        projectile.x < enemies[i].x + enemies[i].width && 
+                        projectile.y > enemies[i].y &&
+                        projectile.y < enemies[i].y + enemies[i].height){
+                        enemies[i] = "";
+                        if(enemyspeedmult > 4){
+                        }else{
+                           enemyspeedmult += 0.1; 
+                        }
+                        if(count2 == 5){
+                            count2 = 0;
+                            counttillenemyshoot -= 1;
+                            if(counttillenemyshoot == 1){
+                                counttillenemyshoot = 2;
+                            }
+                        }
+                        count2++;
+                    }
+                }
+            })
+        }
+
+        function regenerateenemies(i){
+            let speed = Math.floor((Math.random() * 14) - 7);
+            while(speed == 0){
+                speed = Math.floor((Math.random() * 14) - 7);
+            }
+            enemies[i] = {
+                height: 20,
+                width: 70,
+                x: Math.floor((Math.random() * (canvas.width - 80)) + 80),
+                y: canvas.height - (canvas.height - 150),
+                speedX: speed
+            }
+            checked[i] = 0;
+        }
+
+        function createenemyprojectiles(id){
+            let done = false;
+            for(let i = 0; i < 100; i++){
+                if(enemyprojectiles[i] == '' && done == false){
+                    done = true;
+                    enemyprojectiles[i] = {
+                        height: 25,
+                        width: 10,
+                        x: enemies[id].x + enemies[id].width/2,
+                        y: enemies[id].y + 30,
+                        speedY: -10
+                    }
+                }
+            }
+        }
+        
+        function shootenemyprojectiles(){
+            enemyprojectiles.forEach(projectile => {
+                ctx.fillStyle = "red";
+                ctx.fillRect(projectile.x, projectile.y, projectile.width, projectile.height);
+                projectile.y -= projectile.speedY;
+
+                players.forEach(player => {
+                    if(projectile.x > player.x && 
+                    projectile.x < player.x + player.width && 
+                    projectile.y > player.y &&
+                    projectile.y < player.y + player.height){
+                    player = "";
+                    playerpop(player);
+                    }
+                })
+            })
+        }
+
+        function playerpop(){
+            let boom_particles = [];
+            for(let i = 0; i < 10; i++){
+                boom_particles.push({
+                    height: Math.floor((Math.random() * 15) + 5), 
+                    width: Math.floor((Math.random() * 15) + 5), 
+                    x: Math.floor((Math.random() * (player.x + player.width)) + player.x),
+                    y: Math.floor((Math.random() * (player.y + player.height)) + player.y),
+                    speedX: Math.floor((Math.random() * 2) - 2),
+                    speedY: Math.floor((Math.random() * 2) - 2)
+                })
+            }
+            destroyparticleanimation(boom_particles);
+        }
+        animate();
+    </script>
+</body>
+</html>

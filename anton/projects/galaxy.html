@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #ctx{
+            height: 100%;
+            width: 100%;
+            background: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="ctx"></canvas>
+    <script>
+        var canvas = document.getElementById("ctx");
+        var ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        var particles = [];
+        var num = false;
+        var color = true;
+        var int;
+
+        document.addEventListener("click", () => {
+            particles = [];
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            clearInterval(int);
+            if(num){
+                color = true;
+                num = false;
+            }else{
+                color = true;
+                num = false;
+            }
+            createnew();
+        })
+
+        function createnew(){
+        for(let j = 0; j < 2; j++){
+            particles.push({
+                x: canvas.width/2,
+                y: canvas.height/2,
+                color1: Math.floor((Math.random() * 255) + 50),
+                color2: Math.floor((Math.random() * 255) + 50),
+                color3: Math.floor((Math.random() * 255) + 50),
+                color4: Math.floor((Math.random() * 9) + 5),
+                col1add: Math.floor(Math.random() * 5),
+                col2add: Math.floor(Math.random() * 5),
+                col3add: Math.floor(Math.random() * 5)
+            })
+        }
+        animate();
+        }
+        function animate(){
+        int = setInterval(() => {
+            for(let i = 0; i < 20; i++){
+            particles.forEach(particle => {
+                ctx.fillStyle = "rgba(" + particle.color1 + ", " + particle.color2 + ", " + particle.color3 + ", 0." + particle.color4 + ")";
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, 1, 0, Math.PI * 2);
+                ctx.fill();
+
+                if(particle.x < 0){
+                    particle.x += Math.random() * 10;
+                }
+                if(particle.y < 0){
+                    particle.y += Math.random() * 10;
+                }
+                if(particle.x > canvas.width){
+                    particle.x += -Math.random() * 10;
+                }
+                if(particle.y > canvas.height){
+                    particle.y += -Math.random() * 10;
+                }
+                particle.x += (Math.random() * 20) - 10;
+                particle.y += (Math.random() * 20) - 10;
+                if(particle.color1 >= 255){
+                    particle.col1add = -Math.abs(particle.col1add);
+                }else if(particle.color1 <= 0){
+                    particle.col1add = Math.abs(particle.col1add);
+                }
+                if(particle.color2 >= 255){
+                    particle.col2add = -Math.abs(particle.col2add);
+                }else if(particle.color2 <= 0){
+                    particle.col2add = Math.abs(particle.col2add);
+                }
+                if(particle.color3 >= 255){
+                    particle.col3add = -Math.abs(particle.col3add);
+                }else if(particle.color3 <= 0){
+                    particle.col3add = Math.abs(particle.col3add);
+                }
+                if(color){
+                particle.color1 += particle.col1add;
+                particle.color2 += particle.col2add;
+                particle.color3 += particle.col3add;
+                }
+            });
+            }
+        }, 0);
+        }
+
+        createnew();
+    </script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .cont{
+            height: 100dvh;
+            width: 100%;
+            background-image: url(images/1567679.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container{
+            position: absolute;
+            width: 70%;
+            margin-left: -40px;
+            height: 70%;
+            border-radius: 50px;
+            background: linear-gradient(45deg, rgb(0, 120, 255), blue);
+            box-shadow: 20px 20px 0px 0px rgba(0, 0, 212, 0.753);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .abteil{
+            width: 40%;
+            margin-left: 5%;
+            height: 90%;
+            background: transparent;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .textbig{
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400px;
+            font-style: normal;
+            font-size: 60px;
+            text-align: center;
+            color: white;
+            text-shadow: 5px 5px 3px rgb(50, 50, 50);
+        }
+        .text{
+            font-size: 24px;
+            text-decoration: none;
+            font-family: sans-serif;
+            margin-top: -15px;
+            color: white;
+            text-shadow: 2px 2px 2px rgb(50, 50, 50);
+        }
+        .btn, .btnn{   
+            height: 50px;
+            width: 250px;
+            font-size: 34px;
+            box-shadow: 10px 10px 0px 0px rgb(0, 0, 175);
+            color: white;
+            border-radius: 20px;
+            border: 2px solid white;
+            background: transparent;
+            margin: 15px;
+            font-family: 'Cute Font', sans-serif;
+            transition: 75ms;
+        }
+        .btnn{
+            box-shadow: 0px 0px 0px 0px transparent;
+        }
+        .btnn:hover{
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .btnn:active{
+            transform: scale(0.95);
+        }
+        .btn:hover{
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(3px, 3px);
+            box-shadow: 7px 7px 0px 0px rgb(0, 0, 175);
+        }
+        .btn:active{
+            transform: translate(10px, 10px);
+            box-shadow: 0px 0px 0px 0px;
+        }
+        .info{
+            position: absolute;
+            height: 600px;
+            width: 1000px;
+            background: rgba(0, 0, 0);
+            border: 2px solid white;
+            border-radius: 60px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: 300ms;
+        }
+        .textt{
+            font-size: 24px;
+            color: white;
+            margin: 100px;
+            text-align: center;
+        }
+        .close{
+            background: transparent;
+            border: 2px solid white;
+            width: 150px;
+            height: 50px;
+            color: white;
+            font-size: 24px;
+            border-radius: 20px;
+        }
+        .close:hover{
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .close:active{
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <div class="container">
+            <div class="abteil">
+                <p class="textbig">AG-Computer 2023-2024</p>
+                <p class="text">ein paar Projekte / Spiele:</p>
+            </div>
+            <div class="abteil">
+                <button class="btn" onclick="info('a')">Shooter</button>
+                <button class="btn" onclick="info('b')">Muster 1</button>
+                <button class="btn" onclick="info('c')">Muster 2</button>
+                <button class="btn" onclick="info('d')">Partikel</button>
+                <button class="btn" onclick="info('e')">Galaxy</button>
+            </div>
+        </div>
+        <div class="info" id="a">
+            <button class="close" onclick="closee('a')">zurück</button>
+            <p class="textt">Ein ganz einfacher shooter. Bewege dein Spieler nach links/rechts indem du die Maus bewegst. Dus schiest mit der Enter-Taste oder indem du links-Klickst.</p>
+            <button class="btnn"><a href="projects/shooter.html" class="text">Play!</a></button>
+        </div>
+        <div class="info" id="b">
+            <button class="close" onclick="closee('b')">zurück</button>
+            <p class="textt">Einfach ein Muster erstellt mit Sinus und Cosinus Rechnungen.</p>
+            <button class="btnn"><a href="projects/muster1.html" class="text">Play!</a></button>
+        </div>
+        <div class="info" id="c">
+            <button class="close" onclick="closee('c')">zurück</button>
+            <p class="textt">Einfach ein Muster erstellt mit Sinus und Cosinus Rechnungen</p>
+            <button class="btnn"><a href="projects/muster2.html" class="text">Play!</a></button>
+        </div>
+        <div class="info" id="d">
+            <button class="close" onclick="closee('d')">zurück</button>
+            <p class="textt">Eine kleine Partikel Simulation. Einfach mal bisschen rumspielen!</p>
+            <button class="btnn"><a href="projects/particel.html" class="text">Play!</a></button>
+        </div>
+        <div class="info" id="e">
+            <button class="close" onclick="closee('e')">zurück</button>
+            <p class="textt">Dieses Programm erstellt dir eine zufällige Galaxy du kannst sie zurücksetzen indem du auf den Bildschirm Klickst</p>
+            <button class="btnn"><a href="projects/galaxy.html" class="text">Play!</a></button>
+        </div>
+    </div>
+
+    <script>
+        function info(letter){
+            document.getElementById(letter).style.display = "flex";
+        }
+        function closee(letter){
+            document.getElementById(letter).style.display = "none";
+        }
+    </script>
+</body>
+</html>
