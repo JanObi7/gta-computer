@@ -8,7 +8,8 @@ Die "GTA Computer" konnte sich zum "Tag der offenen Tür" erfolgreich präsentie
 
 ![Tag der offenen Tür](20240202_171222.jpg)
 
-Am Preis-Quiz haben knapp 20 Mitspieler teilgenommen, von denen auch der viele an der Verlosung unserer 4 "micro:bit" teilgenommen haben. Die 4 Gewinner sind mittlerweile ausgelost und freuen sich bereits über ihren neuen Mini-Computer.
+Am Preis-Quiz haben knapp 20 Mitspieler teilgenommen, von denen auch viele an der Verlosung unserer 4 "micro:bit" teilgenommen haben. Die 4 Gewinner sind mittlerweile ausgelost und freuen sich bereits über ihren neuen Mini-Computer.
+
 Großen Zulauf hatte natürlich auch unsere Spiele-Ecke mit "Asteroids" und "Santa Claus". Hier wurde so mancher Highscore aufgestellt.
 
 ![Tag der offenen Tür](20240202_165859.jpg)
