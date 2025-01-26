@@ -17,5 +17,6 @@
 
 - [Asteroids](asteroids) (Browser-Game)
 - [Asteroids mit Highscores](asteroids_hs) (Browser-Game)
+- [Highscores](https://highscore-tdot.web.app/) (Webseite)
 - [Drahtseilbahn](drahtseilbahn) (Website)
 - [Anton](anton) (Web-Projekte und -Spiele)

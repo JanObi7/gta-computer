@@ -30,7 +30,7 @@ Dieses Browser-Spiel wurde 2022 im Rahmen der "Web Programmierung" mit HTML und 
 Dieses Spiel wurde 2021 im Rahmen der "Python Programmierung" umgesetzt. Am Stand kann das Spiel mit Kopfhörer von den Besuchern gespielt werden. Highscores werden vom Standbetreuer dokumentiert.
 
 ### Highscores
-Die vorgestellten Spiele wurden um eine Score-Funktion erweitert. Eine zentrale Cloud-Datenbank sammelt alle Scores. Eine selbstentwickelte Webseite stellt die 10 besten Highscores für jedes Spiel in Echtzeit da. Die Websiete wird mit dem Beamer präsentiert.
+Die vorgestellten Spiele wurden um eine Score-Funktion erweitert. Eine zentrale Cloud-Datenbank sammelt alle Scores. Eine selbstentwickelte [Webseite](https://highscore-tdot.web.app/) stellt die 10 besten Highscores für jedes Spiel in Echtzeit da. Die Webseite wird mit dem Beamer präsentiert.
 
 ![Highscores](highscores.png)
 
