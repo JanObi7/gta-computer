@@ -2,6 +2,7 @@
 
 ## Aktuelles
 
+- 07.02.2025 - [Tag der offenen Tür](tdot25)
 - 05.08.2024 - 09.08.2024 - Einschreibung GTA
 - 02.02.2024 - [Tag der offenen Tür](tdot24)
 
