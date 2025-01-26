@@ -21,7 +21,7 @@ Auf einem Computer werden Themen der "GTA Computer" der letzten Jahre in Form ei
 Ein Projekt aus dem Jahre 2021/2022 beschäftigte sich mit der Nutzung von Bildverarbeitung für eine praktische Problemstellung. Am Stand wird die intelligente Kamerasteuerung live mit Hilfe einer WebCam und dem dazugehörigen Python-Programm demonstriert.
 
 ### Asteroids
-Dieses Browser-Spiel wurde 2022 im Rahmen der "Web Programmierung" mit HTML und JavaScript umgesetzt. Am Stand kann das [Asteroids](../asteroids) von den Besuchern gespielt werden. Highscores werden vom Standbetreuer dokumentiert.
+Dieses Browser-Spiel wurde 2022 im Rahmen der "Web Programmierung" mit HTML und JavaScript umgesetzt. Am Stand kann das [Asteroids](../asteroids_hs) von den Besuchern gespielt werden. Highscores werden vom Standbetreuer dokumentiert.
 
 ### Santa Claus
 

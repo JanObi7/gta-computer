@@ -16,5 +16,6 @@
 ## Projekte
 
 - [Asteroids](asteroids) (Browser-Game)
+- [Asteroids mit Highscores](asteroids_hs) (Browser-Game)
 - [Drahtseilbahn](drahtseilbahn) (Website)
 - [Anton](anton) (Web-Projekte und -Spiele)

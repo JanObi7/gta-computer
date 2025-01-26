@@ -1,0 +1,334 @@
+
+<!doctype html> 
+<html lang="en"> 
+<head> 
+  <title>Space</title>
+  <style>
+    body {
+      color: beige;
+      background-color: black;
+    }
+    h2, h3 {
+      text-align: center;
+    }
+    .input{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    input{
+      text-align: center;
+      width: 20%;
+      height: 30px;
+      font-size: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body fb-data="no">
+<div id="pre-input">
+  <h2>Dieses Programm entstand im Rahmen der GTA 2022/2023 am S.-v.-Pufendorf Gymnasium Flöha. Entwickler: Charlotte, Charlotte, Noah, Raphael, Luis, Adrian und Jan.</h2>
+  <h3>Bitte gib deinen Name ein um zu Spielen. Starte das Spiel mit der Enter-Taste.</h3>
+  <div class="input">
+    <input type="text" id="name-input" placeholder="Name eingeben...">
+  </div>
+</div>
+<h2 id="save" style="display: none;">Speichern...</h2>
+  <script src="lib/phaser.min.js"></script>
+<script type="text/javascript">  
+// Spiel erstellen und starten
+var game
+document.getElementById(addEventListener("keydown", function(event) {
+  if (event.key === "Enter" && document.querySelector("body").getAttribute("fb-data") == "no") {
+    if(document.getElementById("name-input").value != ""){
+      document.getElementById("pre-input").style.display = "none"
+      game = new Phaser.Game({
+        type: Phaser.AUTO, width: 512, height: 512,
+        scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
+        scene: { preload, create, update },
+        physics: { default: 'arcade', arcade: { debug: false } }
+      });
+      document.querySelector("body").setAttribute("fb-data", document.getElementById("name-input").value)
+      document.getElementById("name-input").value = ""
+    }else{
+      alert("Bitte geben einen Namen ein!")
+    }
+  }
+}))
+
+// Laden von Bildern, Sounds usw.
+function preload()
+{
+  this.load.image('space', 'assets/space.jpg');
+  this.load.image('ship', 'assets/ship.png');
+  this.load.image('ast1', 'assets/asteroid1.png');
+  this.load.image('ast2', 'assets/asteroid2.png');
+  this.load.image('ast3', 'assets/asteroid3.png');
+  this.load.spritesheet('explosion', 'assets/explosion.png', { frameWidth: 32, frameHeight: 32 });
+  this.load.image('bullet', 'assets/bullets.png');
+
+  this.load.audio('explosion', 'assets/explosion.mp3');
+  this.load.audio('shot', 'assets/blaster.mp3');
+  this.load.audio('music', 'assets/track.mp3');
+  this.load.audio('split', 'assets/explode.wav');
+}
+
+// Initialisieren der Szene
+function create()
+{
+  // status
+  state = "start"
+  round = 1
+  score = 0
+  lives = 3
+
+  // sounds erstellen
+  snd_explode = this.sound.add('explosion');
+  snd_split = this.sound.add('split');
+  snd_shot = this.sound.add('shot');
+  snd_music = this.sound.add('music', {volume: 0.5, loop: true});
+  snd_music.play()
+
+  // animation erstellen
+  this.anims.create({
+      key: 'explosion',
+      frames: this.anims.generateFrameNumbers('explosion', { start: 0, end: 24 }),
+      frameRate: 20,
+  });
+
+  // Hintergrund
+  this.add.image(256, 256, 'space');
+
+  // Spieler
+  players = this.physics.add.group()
+
+  // Tastatureingabe
+  cursors = this.input.keyboard.createCursorKeys();
+  spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+  enter = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
+  wasd = this.input.keyboard.addKeys("W,A,S,D");
+
+  // Geschosse
+  cooldown = 0
+  bullets = this.physics.add.group()
+
+  // Asteroiden
+  asteroids = this.physics.add.group()
+
+  // collisions
+  this.physics.add.overlap(players, asteroids, crash, null, this);
+  this.physics.add.overlap(bullets, asteroids, hit, null, this);
+
+  // UI
+  roundText = this.add.text(16, 16, '', { fontSize: '16px', fill: '#FFF' });
+  scoreText = this.add.text(496, 16, '', { fontSize: '16px', fill: '#FFF' }).setOrigin(1, 0);
+  live1 = this.add.image(226, 24, 'ship').setScale(0.5)
+  live1.rotation = -Math.PI/2
+  live2 = this.add.image(256, 24, 'ship').setScale(0.5)
+  live2.rotation = -Math.PI/2
+  live3 = this.add.image(286, 24, 'ship').setScale(0.5)
+  live3.rotation = -Math.PI/2
+  stateText = this.add.text(256, 256, 'ASTEROIDS', { fontSize: '36px', fill: '#F00', fontFamily: 'Impact' }).setOrigin(0.5, 1.0);
+  actionText = this.add.text(256, 256, 'press ENTER to start', { fontSize: '24px', fill: '#F00', fontFamily: 'Impact' }).setOrigin(0.5, 0.0);
+
+  updateUI()
+
+  emit(10);
+}
+
+// Aktualisierung der Szene
+function update(time, delta)
+{
+  if (state == "start") {
+    if (enter.isDown) {
+      snd_music.stop()
+      stateText.setText("")
+      actionText.setText("")
+      lives = 3
+      score = 0
+      round = 1
+      updateUI()
+
+      spawn()
+      snd_music.play()
+      state = "game"
+    }
+
+  } 
+  else if (state == "game") {
+    if (player.body.enable) {
+      if (cursors.left.isDown || wasd.A.isDown) {
+        player.setAngularVelocity(-160);
+      }
+      else if (cursors.right.isDown || wasd.D.isDown) {
+        player.setAngularVelocity(160);
+      }
+      else {
+        player.setAngularVelocity(0);
+      }
+      
+      if (cursors.up.isDown || wasd.W.isDown)
+      {
+        // stehen bleiben mit Animation
+        player.setAcceleration(100*Math.cos(player.rotation), 100*Math.sin(player.rotation));
+      } else {
+        player.setAcceleration(0, 0)
+      }
+
+      if (cooldown > 0) {
+        cooldown -= delta
+      } else if (spacebar.isDown) {
+        cooldown = 500;
+
+        snd_shot.play()
+        var bullet = bullets.create(player.x, player.y, 'bullet')
+        bullet.setRotation(player.rotation)
+        bullet.setVelocity(player.body.velocity.x+200*Math.cos(player.rotation), player.body.velocity.y+200*Math.sin(player.rotation));
+      }
+    }
+  }
+
+  asteroids.children.iterate(function (child) {
+    offset = 10
+    if (child.x < -offset) child.x += 512 + 2*offset
+    if (child.x > 512+offset) child.x -= 512 + 2*offset
+    if (child.y < -offset) child.y += 512 + 2*offset
+    if (child.y > 512+offset) child.y -= 512 + 2*offset
+  });
+
+
+}
+
+function updateUI() {
+  roundText.setText('Round: ' + round);
+  scoreText.setText('Score: ' + score);
+  live1.visible = lives > 0
+  live2.visible = lives > 1
+  live3.visible = lives > 2
+  console.log(asteroids.getLength())
+}
+
+// spawn ship
+function spawn() {
+  asteroids.clear(true, true)
+
+  lives--
+  updateUI()
+
+  player = players.create(256, 256, 'ship');
+  player.setCollideWorldBounds(true);
+  player.rotation = -Math.PI/2
+
+  emit(round)
+}
+
+// emit astroids
+function emit(number) {
+  for (var i=0; i<number; i++) {
+    ast = asteroids.create(256, 500, 'ast'+Phaser.Math.Between(1,3).toString())
+    ast.setAngularVelocity(Phaser.Math.Between(-200,200))
+    ast.setVelocity(Phaser.Math.Between(-50,50), Phaser.Math.Between(-50,50))
+  }
+}
+
+// collide with asteroid
+function crash (player, asteroid) {
+  player.disableBody(false, false);
+
+  snd_explode.play()
+  player.play('explosion', true);
+  player.once('animationcomplete', () => {
+    player.destroy()
+
+    if (lives > 0) {
+      spawn()
+    } else {
+      state = "start"
+      stateText.setText("GAME OVER")
+      actionText.setText("press ENTER to restart")
+      asteroid.destroy()
+      game.destroy(true, false)
+      document.querySelector("body").setAttribute("fb-data", score)
+      document.getElementById("save").style.display = "none"
+
+    }
+  })
+}
+
+// hit an asteroid
+function hit (bullet, asteroid) {
+  bullet.destroy();
+
+  score += 1
+  updateUI()
+  
+  if (asteroid.scale > 0.5) {
+    snd_split.play()
+
+    // emit smaller astroids
+    for (var i=0; i<2; i++) {
+      ast = asteroids.create(asteroid.x, asteroid.y, 'ast'+Phaser.Math.Between(1,3).toString()).setScale(0.7*asteroid.scale).refreshBody()
+      ast.setAngularVelocity(Phaser.Math.Between(-200,200))
+      ast.setVelocity(Phaser.Math.Between(-50,50), Phaser.Math.Between(-50,50))
+      // ast.setVelocity(asteroid.body.velocity.x+Phaser.Math.Between(-20,20), asteroid.body.velocity.y+Phaser.Math.Between(-20,20))
+    }
+    asteroid.destroy()
+  } else {
+    asteroid.disableBody(false, false);
+    snd_explode.play()
+    asteroid.play('explosion', true);
+    asteroid.once('animationcomplete', () => {
+      asteroid.destroy(); // Asteroid nach der Animation entfernen
+      if (asteroids.getLength() == 0) {
+        round++
+        emit(round)
+        updateUI()
+      }
+    })
+  }
+}
+</script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBNLwcu1Ckzqr4K71fqr6FALIDY1h8im1E",
+    authDomain: "highscore-tdot.firebaseapp.com",
+    projectId: "highscore-tdot",
+    storageBucket: "highscore-tdot.firebasestorage.app",
+    messagingSenderId: "53377765655",
+    appId: "1:53377765655:web:7f095299ecbf4e2cbf2752"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore();
+
+  var name = ""
+  var score = 0
+  var inputState = 0
+
+  async function awaitInput() {
+    if(document.querySelector("body").getAttribute("fb-data") != "no" && inputState == 0){
+      inputState = 1
+      name = document.querySelector("body").getAttribute("fb-data")
+      document.querySelector("body").setAttribute("fb-data", "game")
+    }
+    if(document.querySelector("body").getAttribute("fb-data") != "game" && inputState == 1){
+      score = parseInt(document.querySelector("body").getAttribute("fb-data"))
+      document.querySelector("body").setAttribute("fb-data", "no")
+      await addDoc(collection(db, "astroidsGame"), {
+        name: name,
+        score: score
+      });
+      inputState = 0
+      document.getElementById("save").style.display = "none"
+      document.getElementById("pre-input").style.display = "block"
+    }
+  }
+
+  setInterval(awaitInput, 1000); 
+</script>
+</body>
+</html>
