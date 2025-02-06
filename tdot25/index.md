@@ -21,13 +21,22 @@ Auf einem Computer werden Themen der "GTA Computer" der letzten Jahre in Form ei
 Ein Projekt aus dem Jahre 2021/2022 beschäftigte sich mit der Nutzung von Bildverarbeitung für eine praktische Problemstellung. Am Stand wird die intelligente Kamerasteuerung live mit Hilfe einer WebCam und dem dazugehörigen Python-Programm demonstriert.
 
 ### Asteroids
-Dieses Browser-Spiel wurde 2022 im Rahmen der "Web Programmierung" mit HTML und JavaScript umgesetzt. Am Stand kann das [Asteroids](https://astroidsgame.web.app/) von den Besuchern gespielt werden. Highscores werden vom Standbetreuer dokumentiert.
+
+![Asteroids](astroids.jpeg)
+
+Dieses Browser-Spiel wurde 2022 im Rahmen der "Web Programmierung" mit HTML und JavaScript umgesetzt. Am Stand kann das [Asteroids](asteroids_hs) von den Besuchern gespielt werden. Highscores werden automatisch auf [Highscores](https://highscore-tdot.web.app/) angezeigt.
+
+### JrRacing
+
+![JrRacing](cargame.png)
+
+Dieses Browser-Spiel wurde 2025 im Rahmen der GTA mit HTML und JavaScript umgesetzt. Am Stand kann das [JrRacing](http://jrracing.web.app/) von den Besuchern gespielt werden. Highscores werden automatisch auf [Highscores](https://highscore-tdot.web.app/) angezeigt.
 
 ### Santa Claus
 
 ![Santa Claus](santaclaus.png)
 
-Dieses Spiel wurde 2021 im Rahmen der "Python Programmierung" umgesetzt. Am Stand kann das Spiel mit Kopfhörer von den Besuchern gespielt werden. Highscores werden vom Standbetreuer dokumentiert.
+Dieses Spiel wurde 2021 im Rahmen der "Python Programmierung" umgesetzt. Am Stand kann das Spiel mit Kopfhörer von den Besuchern gespielt werden. Highscores werden automatisch auf [Highscores](https://highscore-tdot.web.app/) angezeigt.
 
 ### Highscores
 Die vorgestellten Spiele wurden um eine Score-Funktion erweitert. Eine zentrale Cloud-Datenbank sammelt alle Scores. Eine selbstentwickelte [Webseite](https://highscore-tdot.web.app/) stellt die 10 besten Highscores für jedes Spiel in Echtzeit da. Die Webseite wird mit dem Beamer präsentiert.
