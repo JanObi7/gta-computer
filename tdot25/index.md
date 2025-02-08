@@ -45,11 +45,11 @@ Ein Projekt aus dem Jahre 2021/2022 beschäftigte sich mit der Nutzung von Bildv
 
 ![Asteroids](astroids.jpeg)
 
-Dieses Browser-Spiel wurde 2022 im Rahmen der "Web Programmierung" mit HTML und JavaScript umgesetzt. Am Stand kann das [Asteroids](asteroids_hs) von den Besuchern gespielt werden. Highscores werden automatisch auf [Highscores](https://highscore-tdot.web.app/) angezeigt.
+Dieses Browser-Spiel wurde 2022 im Rahmen der "Web Programmierung" mit HTML und JavaScript umgesetzt. Am Stand kann das [Asteroids](../asteroids_hs) von den Besuchern gespielt werden. Highscores werden automatisch auf [Highscores](https://highscore-tdot.web.app/) angezeigt.
 
 ### JrRacing
 
-![JrRacing](cargame.png)
+![JrRacing](CARGAME.png)
 
 Dieses Browser-Spiel wurde 2025 im Rahmen der GTA mit HTML und JavaScript umgesetzt. Am Stand kann das [JrRacing](http://jrracing.web.app/) von den Besuchern gespielt werden. Highscores werden automatisch auf [Highscores](https://highscore-tdot.web.app/) angezeigt.
 
