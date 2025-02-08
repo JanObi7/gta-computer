@@ -3,6 +3,27 @@
 ## Einleitung
 Zum "Tag der offenen Tür" stellt sich die "GTA Computer" vor. Dazu präsentiert die GTA einige ihrer Projekte der vergangenen Jahre im Raum 2.06 in der Zeit von 15:00 bis 18:00.
 
+## Eindrücke
+Die "GTA Computer" konnte sich zum "Tag der offenen Tür" erfolgreich präsentieren. Es kamen viele interessierte Besucher und informierten sich über die ausgestellten Exponate und die Arbeit der GTA.
+
+![Tag der offenen Tür](20250207_150557.jpg)
+
+Nach der Eröffnung ging es los. Alle Exponate wurden sehr gut besucht.
+
+![Tag der offenen Tür](20250207_150906.jpg)
+
+Großen Zulauf hatte natürlich auch in diesem Jahr unsere Spiele-Ecke mit "Asteroids" und "Santa Claus". 
+
+![Tag der offenen Tür](20250207_170315.jpg)
+
+![Tag der offenen Tür](20250207_171206.jpg)
+
+Ein Highlight war sicher unsere neue Highscore-Applikation, die zu vielen Spiele-Runden animierte.
+Auch unsere Programmier-Station wurde gut besucht. Viele Schüler machten hier ihre ersten Programmiererfahrungen.
+
+Am Preis-Quiz haben 12 Mitspieler teilgenommen, von denen auch viele an der Verlosung unserer 3 "micro:bit" teilgenommen haben. Die 3 Gewinner sind mittlerweile ausgelost und werden sich in den nächsten Tagen über ihren neuen Mini-Computer freuen können.
+
+
 ## Preis-Quiz
 Für die Besucher steht ein einfaches [Online-Quiz](https://forms.office.com/r/QvAaquLWnt) mit Fragen rund um die Themen Computer, Internet und Programmierung zur Verfügung. Das Quiz kann von den Besuchern am eigenen Smartphone oder an zwei Arbeitsplätzen absolviert werden.
 
