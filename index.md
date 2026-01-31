@@ -2,7 +2,7 @@
 
 ## Aktuelles
 
-- 30.01.2026 - [Tag der offenen Tür 2025](tdot25)
+- 30.01.2026 - [Tag der offenen Tür 2026](tdot26)
 
 ## Schuljahre
 
