@@ -15,12 +15,8 @@ Großen Zulauf hatte natürlich auch in diesem Jahr unsere Spiele-Ecke mit "Aste
 ![Tag der offenen Tür](foto1.jpg)
 ![Tag der offenen Tür](foto2.jpg)
 
-Ein Highlight war sicher unsere neue Highscore-Applikation, die zu vielen Spiele-Runden animierte.
+Ein Highlight war wieder unsere Highscore-Applikation, die zu vielen Spiele-Runden animierte.
 Auch unsere Programmier-Station wurde gut besucht. Viele Schüler machten hier ihre ersten Programmiererfahrungen.
-
-Am Preis-Quiz haben 12 Mitspieler teilgenommen, von denen auch viele an der Verlosung unserer 3 "micro:bit" teilgenommen haben. Die 3 Gewinner sind mittlerweile ausgelost und werden sich in den nächsten Tagen über ihren neuen Mini-Computer freuen können.
-
-Optional können die Teilnehmer durch Angabe einer Email Adresse an der Verlosung von 3x "micro:bit" teilnehmen. Die Gewinner werden nach der Veranstaltung ermittelt und informiert. Der Rechtsweg ist ausgeschlossen.
 
 ## Exponate
 
