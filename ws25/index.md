@@ -1,7 +1,7 @@
 # 22.10.25 - Einführungsworkshop
 
 ## Einleitung
-Der Schwerpunkt in der [GTA 2025/2026](/2025/) lag auf dem Thema Digitalisierung. Dazu gab es eine Zusammenarbeit mit der [Historischen Schauweberei Braunsdorf](https://historische-schauweberei-braunsdorf.de/).
+Der Schwerpunkt in der [GTA 2025/2026](2025) lag auf dem Thema Digitalisierung. Dazu gab es eine Zusammenarbeit mit der [Historischen Schauweberei Braunsdorf](https://historische-schauweberei-braunsdorf.de/).
 
 In einem ersten Workshop im Museeum erfuhren die GTA-Teilnehmer Wissenswertes über die Grundlagen und die Geschichte des Weben. Es gab einen Überblick über den gesamten Prozess von der Designidee, über die Musterpatrone, die Lochkarten, bis hin zum fertigen Stoff.
 
