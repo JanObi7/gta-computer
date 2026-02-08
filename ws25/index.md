@@ -36,4 +36,4 @@ Zum Abschluss konnten die Schüler noch einige Zeilen in einen besonderen Webrah
 
 ![Wunschwebrahmen](foto5.jpg)
 
-Allen Teilnehmern hat es großen Spaß gemacht.
+Allen Teilnehmern haben die 2 Stunden im Museum großen Spaß gemacht.
