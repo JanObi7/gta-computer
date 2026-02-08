@@ -3,13 +3,16 @@
 ## Aktuelles
 
 - 30.01.2026 - [Tag der offenen Tür 2026](tdot26)
+- 21.01.2026 - [Kreativworkshop](ws26)
+- 22.10.2025 - [Einführungsworkshop](ws25)
 
 ## Schuljahre
 
-- [2021/2022 - Python Programmierung](2021)
-- [2022/2023 - Web Programmierung](2022)
-- [2023/2024 - App Programmierung](2023)
+- [2025/2026 - Digitalisierung](2025)
 - [2024/2025 - 3D Spiele Programmierung](2024)
+- [2023/2024 - App Programmierung](2023)
+- [2022/2023 - Web Programmierung](2022)
+- [2021/2022 - Python Programmierung](2021)
 
 ## Rückblicke
 
